@@ -27,8 +27,8 @@ body {
 /* flex below means:  */
 main {
   position: relative;
-  width: 100rem;
-  height: 60rem;
+  width: 80rem;
+  height: 48rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
   filter: blur();
@@ -63,7 +63,7 @@ main {
 /* ELEMENTS */
 .name {
   /* position: relative; */
-  font-size: 4rem;
+  font-size: 3.2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   word-spacing: 2px;
@@ -72,7 +72,7 @@ main {
 }
 
 .score {
-  font-size: 8rem;
+  font-size: 6.4rem;
   font-weight: 300;
   color: #c7365f;
   margin-bottom: auto;
@@ -106,12 +106,12 @@ main {
 .current-label {
   text-transform: uppercase;
   margin-bottom: 1rem;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   color: #ddd;
 }
 
 .current-score {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
 }
 
 /* ABSOLUTE POSITIONED ELEMENTS */
@@ -124,7 +124,7 @@ main {
   color: #444;
   border: none;
   font-family: inherit;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 400;
@@ -140,7 +140,7 @@ main {
 
 /* these are the emojis */
 .btn::first-letter {
-  font-size: 2.4rem;
+  font-size: 1.9rem;
   display: inline-block;
   margin-right: 0.7rem;
 }
@@ -149,10 +149,10 @@ main {
   top: 4rem;
 }
 .btn--roll {
-  top: 39.3rem;
+  top: 31.4rem;
 }
 .btn--hold {
-  top: 46.1rem;
+  top: 36.9rem;
 }
 
 .btn:active {

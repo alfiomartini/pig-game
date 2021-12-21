@@ -1,17 +1,6 @@
 "use strict";
 
-const players = [
-  {
-    score: 0,
-    currentScore: 0,
-    history: [],
-  },
-  {
-    score: 0,
-    currentScore: 0,
-    history: [],
-  },
-];
+let players = [];
 
 let PLAYER_TURN = 0;
 
@@ -26,16 +15,32 @@ const btnHold = document.querySelector(".btn--hold");
 
 function startGame() {
   PLAYER_TURN = 0;
+  players = [
+    {
+      score: 0,
+      currentScore: 0,
+      history: [],
+    },
+    {
+      score: 0,
+      currentScore: 0,
+      history: [],
+    },
+  ];
   scoreElms[0].textContent = players[0].score;
   scoreElms[1].textContent = players[1].score;
   currScoreElms[0].textContent = players[0].currentScore;
   currScoreElms[1].textContent = players[1].currentScore;
   diceImg.classList.add("hidden");
+  playerElms[PLAYER_TURN].classList.add("player--active");
 }
 
 function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
+
+// Initialize all variables
+startGame();
 
 btnGame.addEventListener("click", startGame);
 
