@@ -49,6 +49,7 @@ btnDice.addEventListener("click", () => {
     currScoreElms[PLAYER_TURN].textContent = player.currentScore.toString();
     PLAYER_TURN = (PLAYER_TURN + 1) % 2;
     playerElms[PLAYER_TURN].classList.toggle("player--active");
+    diceImg.classList.toggle("hidden");
   } else {
     player.currentScore += diceNum;
     currScoreElms[PLAYER_TURN].textContent = player.currentScore.toString();
@@ -62,6 +63,7 @@ btnHold.addEventListener("click", () => {
   player.currentScore = 0;
   currScoreElms[PLAYER_TURN].textContent = player.currentScore.toString();
   playerElms[PLAYER_TURN].classList.toggle("player--active");
+  diceImg.classList.toggle("hidden");
   PLAYER_TURN = (PLAYER_TURN + 1) % 2;
   playerElms[PLAYER_TURN].classList.toggle("player--active");
 });
