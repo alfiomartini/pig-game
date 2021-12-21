@@ -1,13 +1,5 @@
 "use strict";
 
-const currLabelElms = document.querySelectorAll(".current-label");
-const scoreElms = document.querySelectorAll(".score");
-const currScoreElms = document.querySelectorAll(".current-score");
-const diceImg = document.querySelector(".dice");
-const playerElms = document.querySelectorAll(".player");
-
-let PLAYER_TURN = 0;
-
 const players = [
   {
     score: 0,
@@ -21,20 +13,31 @@ const players = [
   },
 ];
 
-scoreElms[0].textContent = players[0].score;
-scoreElms[1].textContent = players[1].score;
-currScoreElms[0].textContent = players[0].currentScore;
-currScoreElms[1].textContent = players[1].currentScore;
+let PLAYER_TURN = 0;
+
+const currLabelElms = document.querySelectorAll(".current-label");
+const scoreElms = document.querySelectorAll(".score");
+const currScoreElms = document.querySelectorAll(".current-score");
+const diceImg = document.querySelector(".dice");
+const playerElms = document.querySelectorAll(".player");
+const btnGame = document.querySelector(".btn--new");
+const btnDice = document.querySelector(".btn--roll");
+const btnHold = document.querySelector(".btn--hold");
+
+function startGame() {
+  PLAYER_TURN = 0;
+  scoreElms[0].textContent = players[0].score;
+  scoreElms[1].textContent = players[1].score;
+  currScoreElms[0].textContent = players[0].currentScore;
+  currScoreElms[1].textContent = players[1].currentScore;
+  diceImg.classList.add("hidden");
+}
 
 function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
-const btnGame = document.querySelector(".btn--new");
-const btnDice = document.querySelector(".btn--roll");
-const btnHold = document.querySelector(".btn--hold");
-
-btnGame.addEventListener("click", () => {});
+btnGame.addEventListener("click", startGame);
 
 btnDice.addEventListener("click", () => {
   const diceNum = rollDice();
@@ -49,7 +52,7 @@ btnDice.addEventListener("click", () => {
     currScoreElms[PLAYER_TURN].textContent = player.currentScore.toString();
     PLAYER_TURN = (PLAYER_TURN + 1) % 2;
     playerElms[PLAYER_TURN].classList.toggle("player--active");
-    diceImg.classList.toggle("hidden");
+    // diceImg.classList.toggle("hidden");
   } else {
     player.currentScore += diceNum;
     currScoreElms[PLAYER_TURN].textContent = player.currentScore.toString();
