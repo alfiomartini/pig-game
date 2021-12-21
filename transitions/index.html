@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Transitions</title>
+    <style>
+      #ball {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: red;
+        margin-top: 100px;
+        margin-left: 50px;
+        transition: margin 2s;
+      }
+
+      #ball.transition {
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+
+      #ball.animation {
+        animation: animateMe 3s linear forwards;
+      }
+
+      @keyframes animateMe {
+        0% {
+          background-color: red;
+          margin-left: 10%;
+        }
+        25% {
+          background-color: yellow;
+          margin-left: 20%;
+        }
+        50% {
+          background-color: blue;
+          margin-left: 35%;
+        }
+        100% {
+          background-color: green;
+          margin-left: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button>Transition</button>
+    <button>Animation</button>
+    <div id="ball" class=""></div>
+  </body>
+  <script>
+    const buttons = document.querySelectorAll("button");
+    const transition = buttons[0];
+    const animation = buttons[1];
+    const ball = document.getElementById("ball");
+    transition.addEventListener("click", () => {
+      ball.classList.toggle("transition");
+    });
+    animation.addEventListener("click", () => {
+      ball.classList.toggle("animation");
+    });
+  </script>
+</html>

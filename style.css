@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 * {
   margin: 0;
@@ -11,8 +11,9 @@ html {
   box-sizing: border-box;
 }
 
+/* flex below centers the 'main' play board */
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   height: 100vh;
   color: #333;
@@ -23,6 +24,7 @@ body {
 }
 
 /* LAYOUT */
+/* flex below means:  */
 main {
   position: relative;
   width: 100rem;
@@ -34,6 +36,15 @@ main {
   border-radius: 9px;
   overflow: hidden;
   display: flex;
+  /* making defaults explicit */
+  flex-direction: row;
+  /* horizontally */
+  justify-content: flex-start;
+}
+
+/* added  */
+.hidden {
+  display: none;
 }
 
 .player {
@@ -41,13 +52,17 @@ main {
   padding: 9rem;
   display: flex;
   flex-direction: column;
+  /* horizontally */
   align-items: center;
+  /* making default explicit */
+  /* vertically */
+  justify-content: flex-start;
   transition: all 0.75s;
 }
 
 /* ELEMENTS */
 .name {
-  position: relative;
+  /* position: relative; */
   font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -101,11 +116,12 @@ main {
 
 /* ABSOLUTE POSITIONED ELEMENTS */
 .btn {
+  /* 'absolute' reference ancestor here is 'main' (position :relative) */
+  /* it would be hard to position the buttons like this without this trick */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   color: #444;
-  background: none;
   border: none;
   font-family: inherit;
   font-size: 1.8rem;
@@ -114,7 +130,6 @@ main {
   font-weight: 400;
   transition: all 0.2s;
 
-  background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
 
@@ -123,6 +138,7 @@ main {
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
 
+/* these are the emojis */
 .btn::first-letter {
   font-size: 2.4rem;
   display: inline-block;
