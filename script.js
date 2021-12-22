@@ -34,7 +34,8 @@ function startGame() {
   currScoreElms[0].textContent = players[0].currentScore;
   currScoreElms[1].textContent = players[1].currentScore;
   diceImg.classList.add("hidden");
-  playerElms[PLAYER_TURN].classList.add("player--active");
+  playerElms[0].classList.add("player--active");
+  playerElms[1].classList.remove("player--active");
 }
 
 function rollDice() {
@@ -83,6 +84,7 @@ btnDice.addEventListener("click", () => {
 });
 
 btnHold.addEventListener("click", () => {
+  if (GAME_OVER) return;
   let player = players[PLAYER_TURN];
   player.score += player.currentScore;
   scoreElms[PLAYER_TURN].textContent = player.score.toString();
