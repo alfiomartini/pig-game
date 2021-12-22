@@ -209,11 +209,6 @@ main {
     margin-bottom: 50px;
   }
 
-  /* .dice {
-    top: 27rem;
-    height: 7rem;
-  } */
-
   .btn {
     font-size: 16px;
     padding: 5px 8px;
@@ -237,6 +232,12 @@ main {
   }
   .btn--hold {
     left: 65%;
+  }
+
+  .dice {
+    top: 55%;
+    left: 15%;
+    /* transform: translate(-50%, -55%); */
   }
 }
 
