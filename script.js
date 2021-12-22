@@ -39,6 +39,14 @@ function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 290) {
+    btnHold.textContent = "Hold";
+  } else {
+    btnHold.textContent = "📥 Hold";
+  }
+});
+
 // Initialize all variables
 startGame();
 

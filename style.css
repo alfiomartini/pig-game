@@ -139,11 +139,11 @@ main {
 }
 
 /* these are the emojis */
-.btn::first-letter {
+/* .btn::first-letter {
   font-size: 1.9rem;
   display: inline-block;
   margin-right: 0.7rem;
-}
+} */
 
 .btn--new {
   top: 4rem;
@@ -166,9 +166,10 @@ main {
 
 .dice {
   position: absolute;
+  top: 50%;
   left: 50%;
   top: 16.5rem;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
@@ -180,4 +181,80 @@ main {
 .player--winner .name {
   font-weight: 700;
   color: #c7365f;
+}
+
+/* media queries */
+
+@media screen and (max-width: 900px) {
+  main {
+    display: block;
+    width: 40rem;
+    height: 100%;
+  }
+
+  .player {
+    padding: 30px;
+    height: 50%;
+    /* flex */
+    justify-content: flex-end;
+  }
+
+  .name {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
+  .score {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+
+  /* .dice {
+    top: 27rem;
+    height: 7rem;
+  } */
+
+  .btn {
+    font-size: 16px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    text-transform: none;
+  }
+
+  .btn {
+    left: 15%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .btn--new,
+  .btn--hold,
+  .btn--roll {
+    top: 15px;
+  }
+  .btn--roll {
+    left: 40%;
+  }
+  .btn--hold {
+    left: 65%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  main {
+    width: 370px;
+  }
+}
+
+@media screen and (max-width: 379px) {
+  .btn {
+    font-size: 12px;
+    margin: 0 3px;
+  }
+  .btn--roll {
+    left: 45%;
+  }
+  .btn--hold {
+    left: 74%;
+  }
 }
