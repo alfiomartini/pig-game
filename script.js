@@ -1,8 +1,9 @@
 "use strict";
 
 let players = [];
-
 let PLAYER_TURN = 0;
+let GAME_OVER = false;
+const WINNER_PTS = 70;
 
 const currLabelElms = document.querySelectorAll(".current-label");
 const scoreElms = document.querySelectorAll(".score");
@@ -15,6 +16,7 @@ const btnHold = document.querySelector(".btn--hold");
 
 function startGame() {
   PLAYER_TURN = 0;
+  GAME_OVER = false;
   players = [
     {
       score: 0,
@@ -47,12 +49,20 @@ window.addEventListener("resize", () => {
   }
 });
 
+function winner() {
+  if (players[PLAYER_TURN].score >= WINNER_PTS) {
+    GAME_OVER = true;
+    currScoreElms[PLAYER_TURN].textContent = "YOU WON!";
+  }
+  return GAME_OVER;
+}
 // Initialize all variables
 startGame();
 
 btnGame.addEventListener("click", startGame);
 
 btnDice.addEventListener("click", () => {
+  if (GAME_OVER) return;
   const diceNum = rollDice();
   diceImg.src = `dice-${diceNum}.png`;
   if (diceImg.classList.contains("hidden")) {
@@ -78,6 +88,7 @@ btnHold.addEventListener("click", () => {
   scoreElms[PLAYER_TURN].textContent = player.score.toString();
   player.currentScore = 0;
   currScoreElms[PLAYER_TURN].textContent = player.currentScore.toString();
+  if (winner()) return;
   playerElms[PLAYER_TURN].classList.toggle("player--active");
   diceImg.classList.toggle("hidden");
   PLAYER_TURN = (PLAYER_TURN + 1) % 2;
