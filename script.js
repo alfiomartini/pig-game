@@ -3,7 +3,7 @@
 let players = [];
 let PLAYER_TURN = 0;
 let GAME_OVER = false;
-const WINNER_PTS = 70;
+const WINNER_PTS = 50;
 
 const currLabelElms = document.querySelectorAll(".current-label");
 const scoreElms = document.querySelectorAll(".score");
@@ -65,7 +65,7 @@ btnGame.addEventListener("click", startGame);
 btnDice.addEventListener("click", () => {
   if (GAME_OVER) return;
   const diceNum = rollDice();
-  diceImg.src = `dice-${diceNum}.png`;
+  diceImg.src = `./static/images/dice-${diceNum}.png`;
   if (diceImg.classList.contains("hidden")) {
     diceImg.classList.remove("hidden");
   }
